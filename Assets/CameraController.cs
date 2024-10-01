@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class CameraController : MonoBehaviour
 {
@@ -6,6 +7,14 @@ public class CameraController : MonoBehaviour
     public float transitionSpeed = 5.0f; // Speed of transition, adjust as needed
     private Transform targetTransform;
     private bool isMoving = false;
+    public int cam = 0;
+    public TMP_Text solarMetering;
+    public TMP_Text solarLearning;
+    public TMP_Text dc_load;
+    public TMP_Text ac_load;
+    public TMP_Text battery;
+    public TMP_Text dcacbattLearning;
+
 
     /* Positions
     ---------
@@ -32,6 +41,7 @@ public class CameraController : MonoBehaviour
         {
             MoveCameraToPosition();
         }
+
     }
 
     public void SetCameraTransform(int index)
@@ -41,6 +51,51 @@ public class CameraController : MonoBehaviour
             targetTransform.position = cameraPositions[index].position;
             targetTransform.rotation = cameraPositions[index].rotation;
             isMoving = true;
+            cam = index;
+
+            solarMetering.gameObject.SetActive(false);
+            solarLearning.gameObject.SetActive(false);
+            dc_load.gameObject.SetActive(false);
+            ac_load.gameObject.SetActive(false);
+            battery.gameObject.SetActive(false);
+            dcacbattLearning.gameObject.SetActive(false);
+        }
+    }
+
+    private void UpdateTextVisibility()
+    {
+        Debug.Log("Current camera position index: " + cam);
+        // Initially disable all text displays
+        solarMetering.gameObject.SetActive(false);
+        solarLearning.gameObject.SetActive(false);
+        dc_load.gameObject.SetActive(false);
+        ac_load.gameObject.SetActive(false);
+        battery.gameObject.SetActive(false);
+        dcacbattLearning.gameObject.SetActive(false);
+
+        switch (cam)
+        {
+            case 0:
+                Debug.Log("All texts disabled.");
+                break;
+            case 1:
+                solarMetering.gameObject.SetActive(true);
+                solarLearning.gameObject.SetActive(true);
+                Debug.Log("Solar text enabled.");
+                break;
+            case 2:
+                dc_load.gameObject.SetActive(true);
+                ac_load.gameObject.SetActive(true);
+                battery.gameObject.SetActive(true);
+                dcacbattLearning.gameObject.SetActive(true);
+                Debug.Log("DC Load, AC Load, and Battery texts enabled.");
+                break;
+            case 3:
+                Debug.Log("No text settings defined for camera position 2.");
+                break;
+            default:
+                Debug.Log("Default case: all texts disabled.");
+                break;
         }
     }
 
@@ -54,6 +109,7 @@ public class CameraController : MonoBehaviour
         if (Vector3.Distance(transform.position, targetTransform.position) < 0.01f && Quaternion.Angle(transform.rotation, targetTransform.rotation) < 0.1f)
         {
             isMoving = false; // Stop moving once the target is reached
+            UpdateTextVisibility();
         }
     }
 }
