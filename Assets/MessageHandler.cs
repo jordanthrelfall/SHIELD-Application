@@ -9,4 +9,6 @@ public class MessageHandler : MonoBehaviour
     public string timeOfDay;
     public string powerSource;
     public string load;
+    public string mode;
+    public string reset;
 }

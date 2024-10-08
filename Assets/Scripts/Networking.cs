@@ -12,8 +12,9 @@ public class Networking : MonoBehaviour
     public TMP_Text dc_load;
     public TMP_Text ac_load;
     public TMP_Text battery;
+    public 
 
-    private UdpClient udpClient;
+    UdpClient udpClient;
     private Thread receiveThread;
     public string host = "10.37.29.168"; // IP address of the receiver
     public int port = 1234; // Port number on which to send data

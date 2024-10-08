@@ -8,12 +8,8 @@ public class CameraController : MonoBehaviour
     private Transform targetTransform;
     private bool isMoving = false;
     public int cam = 0;
-    public TMP_Text solarMetering;
-    public TMP_Text solarLearning;
-    public TMP_Text dc_load;
-    public TMP_Text ac_load;
-    public TMP_Text battery;
-    public TMP_Text dcacbattLearning;
+    public GameObject Solar;
+    public GameObject DCACBatt;
 
 
     /* Positions
@@ -53,12 +49,8 @@ public class CameraController : MonoBehaviour
             isMoving = true;
             cam = index;
 
-            solarMetering.gameObject.SetActive(false);
-            solarLearning.gameObject.SetActive(false);
-            dc_load.gameObject.SetActive(false);
-            ac_load.gameObject.SetActive(false);
-            battery.gameObject.SetActive(false);
-            dcacbattLearning.gameObject.SetActive(false);
+            Solar.SetActive(false);
+            DCACBatt.SetActive(false);
         }
     }
 
@@ -66,12 +58,8 @@ public class CameraController : MonoBehaviour
     {
         Debug.Log("Current camera position index: " + cam);
         // Initially disable all text displays
-        solarMetering.gameObject.SetActive(false);
-        solarLearning.gameObject.SetActive(false);
-        dc_load.gameObject.SetActive(false);
-        ac_load.gameObject.SetActive(false);
-        battery.gameObject.SetActive(false);
-        dcacbattLearning.gameObject.SetActive(false);
+        Solar.SetActive(false);
+        DCACBatt.SetActive(false);
 
         switch (cam)
         {
@@ -79,15 +67,11 @@ public class CameraController : MonoBehaviour
                 Debug.Log("All texts disabled.");
                 break;
             case 1:
-                solarMetering.gameObject.SetActive(true);
-                solarLearning.gameObject.SetActive(true);
+                Solar.SetActive(true);
                 Debug.Log("Solar text enabled.");
                 break;
             case 2:
-                dc_load.gameObject.SetActive(true);
-                ac_load.gameObject.SetActive(true);
-                battery.gameObject.SetActive(true);
-                dcacbattLearning.gameObject.SetActive(true);
+                DCACBatt.SetActive(true);
                 Debug.Log("DC Load, AC Load, and Battery texts enabled.");
                 break;
             case 3:

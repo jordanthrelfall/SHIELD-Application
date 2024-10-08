@@ -10,21 +10,35 @@ public class UpdatePacket : MonoBehaviour
 {
     public Networking networking;
     public MessageHandler messageHandler;
-    public ToggleGroup todToggleGroup;
+    public ShieldControls shieldControls;
     public ToggleGroup pwrToggleGroup;
-    public ToggleGroup ldToggleGroup;
+    public Slider slider;
+    string mode;
+
     public GameObject night;
 
     public void updatePacketAndSend()
     {
-        Toggle todActiveToggle = todToggleGroup.ActiveToggles().FirstOrDefault();
         Toggle pwrActiveToggle = pwrToggleGroup.ActiveToggles().FirstOrDefault();
-        Toggle ldActiveToggle = ldToggleGroup.ActiveToggles().FirstOrDefault();
-        messageHandler.timeOfDay = todActiveToggle.name;
-        messageHandler.powerSource = pwrActiveToggle.name;
-        messageHandler.load = ldActiveToggle.name;
+        messageHandler.timeOfDay = shieldControls.tod;
 
-        if (todActiveToggle.name == "Day")
+        if (pwrActiveToggle != null)
+            messageHandler.powerSource = pwrActiveToggle.name;
+       
+        messageHandler.load = shieldControls.ld;
+
+        if (slider.value == 1)
+        {
+            mode = "manual";
+        }
+        else
+        {
+            mode = "automatic";
+        }
+        messageHandler.mode = mode;
+
+
+        if (shieldControls.tod == "Day")
         {
             night.active = false;
         }
@@ -36,5 +50,48 @@ public class UpdatePacket : MonoBehaviour
         string json = JsonUtility.ToJson(messageHandler);
 
         networking.SendData(json);
+
+        shieldControls.ResetController();
+    }
+    public void sliderUpdatePacketAndSend()
+    {
+        messageHandler.timeOfDay = "";
+
+        messageHandler.powerSource = "";
+
+        messageHandler.load = "";
+
+        if (slider.value == 1)
+        {
+            mode = "manual";
+        }
+        else
+        {
+            mode = "automatic";
+        }
+        messageHandler.mode = mode;
+
+        string json = JsonUtility.ToJson(messageHandler);
+
+        networking.SendData(json);
+    }
+
+    public void resetUpdatePacketAndSend()
+    {
+        messageHandler.timeOfDay = "";
+
+        messageHandler.powerSource = "";
+
+        messageHandler.load = "";
+
+        messageHandler.mode = "";
+
+        messageHandler.reset = "reset";
+
+        string json = JsonUtility.ToJson(messageHandler);
+
+        networking.SendData(json);
+
+        messageHandler.reset = "";
     }
 }
