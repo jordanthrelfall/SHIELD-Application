@@ -9,10 +9,19 @@ using TMPro;
 public class Networking : MonoBehaviour
 {
     public TMP_Text solar;
+    public TMP_Text solar_voltage;
+    public TMP_Text solar_current;
+    public TMP_Text inverter_power;
+    public TMP_Text inverter_voltage;
+    public TMP_Text inverter_current;
+    public TMP_Text battery;
+    public TMP_Text battery_voltage;
+    public TMP_Text battery_current;
+    public TMP_Text grid_power;
+    public TMP_Text grid_voltage;
+    public TMP_Text grid_current;
     public TMP_Text dc_load;
     public TMP_Text ac_load;
-    public TMP_Text battery;
-    public 
 
     UdpClient udpClient;
     private Thread receiveThread;
@@ -25,9 +34,19 @@ public class Networking : MonoBehaviour
     {
         udpClient = new UdpClient();
         solar.text = rasp.solar.ToString();
+        solar_voltage.text = rasp.solar_voltage.ToString();
+        solar_current.text = rasp.solar_current.ToString();
+        inverter_power.text = rasp.inverter_power.ToString();
+        inverter_voltage.text = rasp.inverter_voltage.ToString();
+        inverter_current.text = rasp.inverter_current.ToString();
+        battery.text = rasp.battery.ToString();
+        battery_voltage.text = rasp.battery_voltage.ToString();
+        battery_current.text = rasp.battery_current.ToString();
+        grid_power.text = rasp.grid_power.ToString();
+        grid_voltage.text = rasp.grid_voltage.ToString();
+        grid_current.text = rasp.grid_current.ToString();
         dc_load.text = rasp.dc_load.ToString();
         ac_load.text = rasp.ac_load.ToString();
-        battery.text = rasp.battery.ToString();
         StartReceiving();
     }
 
@@ -39,9 +58,19 @@ public class Networking : MonoBehaviour
         }
 
         solar.text = rasp.solar.ToString();
+        solar_voltage.text = rasp.solar_voltage.ToString();
+        solar_current.text = rasp.solar_current.ToString();
+        inverter_power.text = rasp.inverter_power.ToString();
+        inverter_voltage.text = rasp.inverter_voltage.ToString();
+        inverter_current.text = rasp.inverter_current.ToString();
+        battery.text = rasp.battery.ToString();
+        battery_voltage.text = rasp.battery_voltage.ToString();
+        battery_current.text = rasp.battery_current.ToString();
+        //grid_power.text = rasp.grid_power.ToString();
+        //grid_voltage.text = rasp.grid_voltage.ToString();
+        //grid_current.text = rasp.grid_current.ToString();
         dc_load.text = rasp.dc_load.ToString();
         ac_load.text = rasp.ac_load.ToString();
-        battery.text = rasp.battery.ToString();
     }
 
     private void StartReceiving()
@@ -69,9 +98,19 @@ public class Networking : MonoBehaviour
 
                 // Update UI on the main thread
                 rasp.solar = receivedData.solar;
+                rasp.solar_voltage = receivedData.solar_voltage;
+                rasp.solar_current = receivedData.solar_current;
+                rasp.inverter_power = receivedData.inverter_power;
+                rasp.inverter_voltage = receivedData.inverter_voltage;
+                rasp.inverter_current = receivedData.inverter_current;
+                rasp.battery = receivedData.battery;
+                rasp.battery_voltage = receivedData.battery_voltage;
+                rasp.battery_current = receivedData.battery_current;
+                rasp.grid_power = receivedData.grid_power;
+                rasp.grid_voltage = receivedData.grid_voltage;
+                rasp.grid_current = receivedData.grid_current;
                 rasp.dc_load = receivedData.dc_load;
                 rasp.ac_load = receivedData.ac_load;
-                rasp.battery = receivedData.battery;
 
                 // Assign the received data to the rasp variable
                 //rasp = receivedData;

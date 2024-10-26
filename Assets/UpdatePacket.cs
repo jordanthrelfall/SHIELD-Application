@@ -12,6 +12,7 @@ public class UpdatePacket : MonoBehaviour
     public MessageHandler messageHandler;
     public ShieldControls shieldControls;
     public ToggleGroup pwrToggleGroup;
+    public ToggleGroup ldToggleGroup;
     public Slider slider;
     string mode;
 
@@ -20,12 +21,17 @@ public class UpdatePacket : MonoBehaviour
     public void updatePacketAndSend()
     {
         Toggle pwrActiveToggle = pwrToggleGroup.ActiveToggles().FirstOrDefault();
+        Toggle ldActiveToggle = ldToggleGroup.ActiveToggles().FirstOrDefault();
         messageHandler.timeOfDay = shieldControls.tod;
 
         if (pwrActiveToggle != null)
+        {
             messageHandler.powerSource = pwrActiveToggle.name;
-       
-        messageHandler.load = shieldControls.ld;
+        }
+        if (ldActiveToggle != null)
+        {
+            messageHandler.load = ldActiveToggle.name;
+        }
 
         if (slider.value == 1)
         {

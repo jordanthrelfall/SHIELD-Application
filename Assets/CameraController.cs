@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
     public int cam = 0;
     public GameObject Solar;
     public GameObject DCACBatt;
+    public GameObject InsideHouse;
+    public GameObject Grid;
 
 
     /* Positions
@@ -51,6 +53,8 @@ public class CameraController : MonoBehaviour
 
             Solar.SetActive(false);
             DCACBatt.SetActive(false);
+            InsideHouse.SetActive(false);
+            Grid.SetActive(false);
         }
     }
 
@@ -60,6 +64,8 @@ public class CameraController : MonoBehaviour
         // Initially disable all text displays
         Solar.SetActive(false);
         DCACBatt.SetActive(false);
+        InsideHouse.SetActive(false);
+        Grid.SetActive(false);
 
         switch (cam)
         {
@@ -75,7 +81,12 @@ public class CameraController : MonoBehaviour
                 Debug.Log("DC Load, AC Load, and Battery texts enabled.");
                 break;
             case 3:
-                Debug.Log("No text settings defined for camera position 2.");
+                InsideHouse.SetActive(true);
+                Debug.Log("Showing inside house.");
+                break;
+            case 4:
+                Grid.SetActive(true);
+                Debug.Log("Grid.");
                 break;
             default:
                 Debug.Log("Default case: all texts disabled.");

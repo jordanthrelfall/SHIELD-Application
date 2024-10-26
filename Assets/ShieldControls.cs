@@ -10,8 +10,12 @@ public class ShieldControls : MonoBehaviour
     public ToggleGroup todToggleGroup;
     public ToggleGroup ldToggleGroup;
     public ToggleGroup pwrToggleGroup;
+    public Slider slider;
+    public Button button;
+    public Button ldButton;
     public string tod;
     public string ld;
+    public MessageHandler message;
     private string pwr;
 
     // Start is called before the first frame update
@@ -31,15 +35,30 @@ public class ShieldControls : MonoBehaviour
         todToggleGroup.gameObject.SetActive(true);
         ldToggleGroup.gameObject.SetActive(false);
         pwrToggleGroup.gameObject.SetActive(false);
+        button.gameObject.SetActive(false);
+        ldButton.gameObject.SetActive(false);
     }
 
     public void updateTod()
     {
         Toggle todActiveToggle = todToggleGroup.ActiveToggles().FirstOrDefault();
         tod = todActiveToggle.name;
-        todToggleGroup.gameObject.SetActive(false);
-        ldToggleGroup.gameObject.SetActive(true);
-        pwrToggleGroup.gameObject.SetActive(false);
+        if (slider.value == 1)
+        {         
+            todToggleGroup.gameObject.SetActive(false);
+            ldToggleGroup.gameObject.SetActive(true);
+            pwrToggleGroup.gameObject.SetActive(false);
+            ldButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            todToggleGroup.gameObject.SetActive(false);
+            ldToggleGroup.gameObject.SetActive(true);
+            pwrToggleGroup.gameObject.SetActive(false);
+            button.gameObject.SetActive(true);
+            ldButton.gameObject.SetActive(false);
+        }
+        message.timeOfDay = tod;
     }
 
     public void updateLd()
@@ -49,7 +68,9 @@ public class ShieldControls : MonoBehaviour
         todToggleGroup.gameObject.SetActive(false);
         ldToggleGroup.gameObject.SetActive(false);
         pwrToggleGroup.gameObject.SetActive(true);
-
+        ldButton.gameObject.SetActive(false);
+        button.gameObject.SetActive(true);
+        message.load = ld;
         Debug.Log("let's see!");
         if ((tod == "Day") && (ld == "DC"))
         {
