@@ -41,6 +41,11 @@ public class EnergyFlow : MonoBehaviour
                 pvToBattery.SetActive(false);
                 batteryToInverter.SetActive(false);
                 break;
+            case "Battery / Grid":
+                gridToHouse.SetActive(true);
+                pvToBattery.SetActive(false);
+                batteryToInverter.SetActive(false);
+                break;
             default:
                 break;
         }
