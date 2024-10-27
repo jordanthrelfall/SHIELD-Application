@@ -25,7 +25,7 @@ public class Networking : MonoBehaviour
 
     UdpClient udpClient;
     private Thread receiveThread;
-    public string host = "10.37.29.168"; // IP address of the receiver
+    public string host = "172.20.10.6"; // IP address of the receiver
     public int port = 1234; // Port number on which to send data
     public string text = "hello";
     public RaspPiData rasp;

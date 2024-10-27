@@ -14,6 +14,8 @@ public class UpdatePacket : MonoBehaviour
     public ToggleGroup pwrToggleGroup;
     public ToggleGroup ldToggleGroup;
     public Slider slider;
+    public LightController lights;
+    public EnergyFlow energy;
     string mode;
 
     public GameObject night;
@@ -52,6 +54,9 @@ public class UpdatePacket : MonoBehaviour
         {
             night.active = true;
         }
+
+        lights.UpdateLights();
+        energy.UpdateEnergyFlow();
 
         string json = JsonUtility.ToJson(messageHandler);
 

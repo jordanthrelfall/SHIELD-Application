@@ -9,7 +9,7 @@ public class LightController : MonoBehaviour
     public MessageHandler load;
 
     // Update is called once per frame
-    void Update()
+    public void UpdateLights()
     {
         if (load.load == "AC")
         {

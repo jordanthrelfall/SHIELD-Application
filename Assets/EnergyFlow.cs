@@ -12,7 +12,7 @@ public class EnergyFlow : MonoBehaviour
     public MessageHandler message;
 
     // Update is called once per frame
-    void Update()
+    public void UpdateEnergyFlow()
     {
         switch (message.powerSource)
         {
