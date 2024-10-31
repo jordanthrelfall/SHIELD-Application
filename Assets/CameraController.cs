@@ -12,6 +12,14 @@ public class CameraController : MonoBehaviour
     public GameObject DCACBatt;
     public GameObject InsideHouse;
     public GameObject Grid;
+    public GameObject panelBlinking;
+    public GameObject batteryBlinking;
+    public GameObject inverterBlinking;
+    public GameObject solarEducation;
+    public GameObject batteryEducation;
+    public GameObject inverterEducation;
+    public GameObject gridInformation;
+    public Blinking blinking;
 
 
     /* Positions
@@ -55,6 +63,11 @@ public class CameraController : MonoBehaviour
             DCACBatt.SetActive(false);
             InsideHouse.SetActive(false);
             Grid.SetActive(false);
+            blinking.StopBlinking();
+            solarEducation.SetActive(false);
+            batteryEducation.SetActive(false);
+            inverterEducation.SetActive(false);
+            gridInformation.SetActive(false);
         }
     }
 
@@ -66,6 +79,9 @@ public class CameraController : MonoBehaviour
         DCACBatt.SetActive(false);
         InsideHouse.SetActive(false);
         Grid.SetActive(false);
+        panelBlinking.SetActive(false);
+        batteryBlinking.SetActive(false);
+        inverterBlinking.SetActive(false);
 
         switch (cam)
         {
@@ -74,10 +90,15 @@ public class CameraController : MonoBehaviour
                 break;
             case 1:
                 Solar.SetActive(true);
+                panelBlinking.SetActive(true);
+                blinking.StartBlinking();
                 Debug.Log("Solar text enabled.");
                 break;
             case 2:
                 DCACBatt.SetActive(true);
+                batteryBlinking.SetActive(true);
+                inverterBlinking.SetActive(true);
+                blinking.StartBlinking();
                 Debug.Log("DC Load, AC Load, and Battery texts enabled.");
                 break;
             case 3:

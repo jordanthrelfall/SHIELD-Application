@@ -7,6 +7,7 @@ public class EnergyFlow : MonoBehaviour
     public GameObject pvToBattery;
     public GameObject batteryToInverter;
     public GameObject gridToHouse;
+    public GameObject batteryToDC;
     public GameObject lamp;
 
     public MessageHandler message;
@@ -46,6 +47,11 @@ public class EnergyFlow : MonoBehaviour
                 pvToBattery.SetActive(false);
                 batteryToInverter.SetActive(false);
                 break;
+            case "Battery":
+                gridToHouse.SetActive(false);
+                pvToBattery.SetActive(false);
+                batteryToInverter.SetActive(false);
+                break;
             default:
                 break;
         }
@@ -53,10 +59,17 @@ public class EnergyFlow : MonoBehaviour
         if (message.load == "DC")
         {
             lamp.SetActive(false);
+            batteryToDC.SetActive(true);
+        }
+        else if (message.load == "AC")
+        {
+            lamp.SetActive(true);
+            batteryToDC.SetActive(false);
         }
         else
         {
             lamp.SetActive(true);
+            batteryToDC.SetActive(true);
         }
     }
 }

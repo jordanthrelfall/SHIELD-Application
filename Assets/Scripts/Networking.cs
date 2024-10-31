@@ -66,9 +66,9 @@ public class Networking : MonoBehaviour
         battery.text = rasp.battery.ToString();
         battery_voltage.text = rasp.battery_voltage.ToString();
         battery_current.text = rasp.battery_current.ToString();
-        //grid_power.text = rasp.grid_power.ToString();
-        //grid_voltage.text = rasp.grid_voltage.ToString();
-        //grid_current.text = rasp.grid_current.ToString();
+        grid_power.text = rasp.grid_power.ToString();
+        grid_voltage.text = rasp.grid_voltage.ToString();
+        grid_current.text = rasp.grid_current.ToString();
         dc_load.text = rasp.dc_load.ToString();
         ac_load.text = rasp.ac_load.ToString();
     }
