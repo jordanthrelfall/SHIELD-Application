@@ -5,6 +5,8 @@ public class Blinking : MonoBehaviour
     public GameObject blinkingBattery;
     public GameObject blinkingInverter;
     public GameObject blinkingSolar;
+    public GameObject blinkingGridPole;
+    public GameObject blinkingGridLines;
     public Material material;        // The material to apply the blinking effect to
     public float blinkSpeed = 1.0f;  // Speed of the blinking effect
     public float minOpacity = 0.2f;  // Minimum opacity (0 to 1)
