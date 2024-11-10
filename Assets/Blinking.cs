@@ -6,7 +6,6 @@ public class Blinking : MonoBehaviour
     public GameObject blinkingInverter;
     public GameObject blinkingSolar;
     public GameObject blinkingGridPole;
-    public GameObject blinkingGridLines;
     public Material material;        // The material to apply the blinking effect to
     public float blinkSpeed = 1.0f;  // Speed of the blinking effect
     public float minOpacity = 0.2f;  // Minimum opacity (0 to 1)
@@ -20,9 +19,27 @@ public class Blinking : MonoBehaviour
     {
         if (material != null)
         {
+            material.SetOverrideTag("RenderType", "Transparent");
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            material.SetInt("_ZWrite", 0);
+            material.DisableKeyword("_ALPHATEST_ON");
+            material.EnableKeyword("_ALPHABLEND_ON");
+            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            material.renderQueue = 3000;
+
+            // Set original color to light yellow if starting as black
             originalColor = material.color;
+
+                originalColor = new Color(1f, 1f, 0.6f, maxOpacity); // Set to light yellow with full alpha
+                material.color = originalColor;
+
+
+            Debug.Log("Original Color: " + originalColor);
         }
     }
+
+
 
     void Update()
     {
@@ -55,7 +72,7 @@ public class Blinking : MonoBehaviour
         if (material != null)
         {
             Color resetColor = originalColor;
-            resetColor.a = minOpacity;
+            resetColor.a = maxOpacity; // Set back to maxOpacity when not blinking
             material.color = resetColor;
             blinkTimer = 0.0f; // Reset the timer
         }
@@ -72,5 +89,10 @@ public class Blinking : MonoBehaviour
     {
         isBlinking = false;
         ResetOpacity();
+    }
+
+    public void EnableEducation(GameObject edu)
+    {
+        edu.SetActive(true);
     }
 }

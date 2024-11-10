@@ -111,6 +111,7 @@ public class Networking : MonoBehaviour
                 rasp.grid_current = receivedData.grid_current;
                 rasp.dc_load = receivedData.dc_load;
                 rasp.ac_load = receivedData.ac_load;
+                rasp.cyberattack = receivedData.cyberattack;
 
                 // Assign the received data to the rasp variable
                 //rasp = receivedData;

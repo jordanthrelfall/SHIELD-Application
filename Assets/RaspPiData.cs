@@ -22,6 +22,7 @@ public class RaspPiData
     public string grid_current;
     public string dc_load;
     public string ac_load;
+    public string cyberattack;
 
     public string SolarRelay;
     public string BatteryToInvRelay;

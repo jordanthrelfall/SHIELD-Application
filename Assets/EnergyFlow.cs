@@ -8,7 +8,8 @@ public class EnergyFlow : MonoBehaviour
     public GameObject batteryToInverter;
     public GameObject gridToHouse;
     public GameObject batteryToDC;
-    public GameObject lamp;
+    public GameObject lamp_inverter;
+    public GameObject lamp_grid;
 
     public MessageHandler message;
 
@@ -58,18 +59,40 @@ public class EnergyFlow : MonoBehaviour
         
         if (message.load == "DC")
         {
-            lamp.SetActive(false);
+            lamp_inverter.SetActive(false);
             batteryToDC.SetActive(true);
         }
         else if (message.load == "AC")
         {
-            lamp.SetActive(true);
             batteryToDC.SetActive(false);
+            if (message.powerSource == "PV / Battery / Inverter"
+                || message.powerSource == "Battery / Inverter")
+            {
+                lamp_inverter.SetActive(true);
+                lamp_grid.SetActive(false);
+
+            }
+            else
+            {
+                lamp_grid.SetActive(true);
+                lamp_inverter.SetActive(false);
+            }
         }
         else
         {
-            lamp.SetActive(true);
             batteryToDC.SetActive(true);
+            if (message.powerSource == "PV / Battery / Inverter"
+                || message.powerSource == "Battery / Inverter")
+            {
+                lamp_inverter.SetActive(true);
+                lamp_grid.SetActive(false);
+
+            }
+            else
+            {
+                lamp_grid.SetActive(true);
+                lamp_inverter.SetActive(false);
+            }
         }
     }
 }

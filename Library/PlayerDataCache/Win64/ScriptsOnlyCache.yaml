@@ -1,8 +1,17 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Blinking
+    - BlinkingGrid
+    - BlinkingSolar
     - CameraController
-    - ControlsWheel
+    - ConfigControls
+    - CyberAttackHandler
+    - CyberBlinking
+    - EducationInfo
+    - EnableEducation
+    - EnergyFlow
+    - LightController
     - MessageHandler
     - Networking
     - ShieldControls
@@ -76,11 +85,35 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
   - assembly: Assembly-CSharp
+    fullTypeName: EducationInfo
+    methodName: CloseEducation
+  - assembly: Assembly-CSharp
     fullTypeName: ShieldControls
     methodName: updateLd
   - assembly: Assembly-CSharp
+    fullTypeName: UpdatePacket
+    methodName: resetUpdatePacketAndSend
+  - assembly: Assembly-CSharp
+    fullTypeName: ConfigControls
+    methodName: ShowControls
+  - assembly: Assembly-CSharp
+    fullTypeName: ShieldControls
+    methodName: ResetController
+  - assembly: Assembly-CSharp
+    fullTypeName: EducationInfo
+    methodName: CloseEducation
+  - assembly: Assembly-CSharp
+    fullTypeName: ShieldControls
+    methodName: ResetController
+  - assembly: Assembly-CSharp
     fullTypeName: ShieldControls
     methodName: updateTod
+  - assembly: Assembly-CSharp
+    fullTypeName: CameraController
+    methodName: SetCameraTransform
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   - assembly: Assembly-CSharp
     fullTypeName: CameraController
     methodName: SetCameraTransform
@@ -88,14 +121,35 @@ ScriptsOnlyBuild:
     fullTypeName: UpdatePacket
     methodName: updatePacketAndSend
   - assembly: Assembly-CSharp
+    fullTypeName: ConfigControls
+    methodName: ShowConfigButton
+  - assembly: Assembly-CSharp
+    fullTypeName: UpdatePacket
+    methodName: TurnOnSources
+  - assembly: Assembly-CSharp
+    fullTypeName: EducationInfo
+    methodName: CloseEducation
+  - assembly: Assembly-CSharp
     fullTypeName: UpdatePacket
     methodName: resetUpdatePacketAndSend
+  - assembly: Assembly-CSharp
+    fullTypeName: CyberAttackHandler
+    methodName: ResumeConfig
+  - assembly: Assembly-CSharp
+    fullTypeName: UpdatePacket
+    methodName: resetUpdatePacketAndSend
+  - assembly: Assembly-CSharp
+    fullTypeName: ConfigControls
+    methodName: ShowControls
+  - assembly: Assembly-CSharp
+    fullTypeName: EducationInfo
+    methodName: CloseEducation
   - assembly: Assembly-CSharp
     fullTypeName: CameraController
     methodName: SetCameraTransform
   - assembly: Assembly-CSharp
-    fullTypeName: ControlsWheel
-    methodName: OnButtonClick
+    fullTypeName: EducationInfo
+    methodName: CloseEducation
   - assembly: Assembly-CSharp
     fullTypeName: SliderChanger
     methodName: ToggleSliderValue
@@ -108,9 +162,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: CameraController
     methodName: SetCameraTransform
-  - assembly: Assembly-CSharp
-    fullTypeName: ControlsWheel
-    methodName: OnButtonClick
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -142,58 +193,82 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1602}
+      Script: {instanceID: 1786}
     - Class: 114
-      Script: {instanceID: 2184}
+      Script: {instanceID: 1936}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 2370}
     - Class: 114
-      Script: {instanceID: 2810}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 3086}
+      Script: {instanceID: 2998}
     - Class: 114
-      Script: {instanceID: 3100}
+      Script: {instanceID: 3274}
     - Class: 114
-      Script: {instanceID: 3142}
+      Script: {instanceID: 3288}
     - Class: 114
-      Script: {instanceID: 3980}
+      Script: {instanceID: 3330}
     - Class: 114
-      Script: {instanceID: 4088}
+      Script: {instanceID: 3748}
     - Class: 114
-      Script: {instanceID: 4340}
+      Script: {instanceID: 3978}
     - Class: 114
-      Script: {instanceID: 4924}
+      Script: {instanceID: 4026}
     - Class: 114
-      Script: {instanceID: 4972}
+      Script: {instanceID: 4174}
     - Class: 114
-      Script: {instanceID: 5044}
+      Script: {instanceID: 4282}
     - Class: 114
-      Script: {instanceID: 5148}
+      Script: {instanceID: 4368}
     - Class: 114
-      Script: {instanceID: 5230}
+      Script: {instanceID: 4536}
     - Class: 114
-      Script: {instanceID: 5296}
+      Script: {instanceID: 5120}
     - Class: 114
-      Script: {instanceID: 5332}
+      Script: {instanceID: 5168}
     - Class: 114
-      Script: {instanceID: 5596}
+      Script: {instanceID: 5240}
     - Class: 114
-      Script: {instanceID: 5748}
+      Script: {instanceID: 5344}
     - Class: 114
-      Script: {instanceID: 5834}
+      Script: {instanceID: 5426}
     - Class: 114
-      Script: {instanceID: 6068}
+      Script: {instanceID: 5492}
     - Class: 114
-      Script: {instanceID: 6612}
+      Script: {instanceID: 5528}
     - Class: 114
-      Script: {instanceID: 7610}
+      Script: {instanceID: 5576}
+    - Class: 114
+      Script: {instanceID: 5794}
+    - Class: 114
+      Script: {instanceID: 5918}
+    - Class: 114
+      Script: {instanceID: 5948}
+    - Class: 114
+      Script: {instanceID: 6034}
+    - Class: 114
+      Script: {instanceID: 6268}
+    - Class: 114
+      Script: {instanceID: 6812}
+    - Class: 114
+      Script: {instanceID: 126538}
+    - Class: 114
+      Script: {instanceID: 187616}
+    - Class: 114
+      Script: {instanceID: 374858}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 212
       Script: {instanceID: 0}
@@ -248,6 +323,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: 69f6d8e639ab3f58413582ed7067e59f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ConfigControls
   - hash:
       serializedVersion: 2
       Hash: d0caa48b5fe6778ce3f0de7aec45c4e6
@@ -332,6 +413,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
     className: Benchmark01_UGUI
+  - hash:
+      serializedVersion: 2
+      Hash: ad6d1d18adcb77c25163e58a1558558e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Lamp
   - hash:
       serializedVersion: 2
       Hash: e987953190eb4c12cf19df790566dc2c
@@ -460,7 +547,7 @@ ScriptsOnlyBuild:
     className: Benchmark04
   - hash:
       serializedVersion: 2
-      Hash: 604d0ea7dc7b63bb45c3d084e098d999
+      Hash: 94e21923f6167448d4992138234bd514
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Networking
@@ -562,6 +649,12 @@ ScriptsOnlyBuild:
     className: UnityOnCollisionExit2DMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 79d40f34bc75eab8fbf884deb8cffb93
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EducationInfo
+  - hash:
+      serializedVersion: 2
       Hash: 0a3f328f3ea906bbbcf794f4c27ee59d
     assemblyName: Unity.VisualScripting.Flow
     namespaceName: Unity.VisualScripting
@@ -586,10 +679,22 @@ ScriptsOnlyBuild:
     className: UnityOnPointerExitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: a0ba7544ca4cb4256de704f443e109b6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LightController
+  - hash:
+      serializedVersion: 2
       Hash: 1deda86fe7ffd8587afcfe68a02d034c
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: EnvMapAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 1e7ed4fd8cd6c61132aa437609adec0c
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BlinkingSolar
   - hash:
       serializedVersion: 2
       Hash: 665da785348a8806bf1524fe10742a60
@@ -668,6 +773,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: DictionaryAsset
+  - hash:
+      serializedVersion: 2
+      Hash: d5d376e6e8e6a9cb9b7a36711bed7c5b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: BlinkingGrid
   - hash:
       serializedVersion: 2
       Hash: e7e95903ca66d58e1a7cbd71f824e16d
@@ -844,7 +955,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: 1e4eed9fcf822f92f399329f4d0b4548
+      Hash: 7a25d48e90c6e75f65b5a225829bd185
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CameraController
@@ -892,10 +1003,16 @@ ScriptsOnlyBuild:
     className: Text
   - hash:
       serializedVersion: 2
-      Hash: 53f0f2b60df9d68bfb81acf3461e5b3a
+      Hash: 3002cdb3018b15a3a9b339ed5eb85fcd
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UpdatePacket
+  - hash:
+      serializedVersion: 2
+      Hash: b49dc25fc9678bce481fd51569458e41
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EnergyFlow
   - hash:
       serializedVersion: 2
       Hash: 1ce63d97d1ca25cba2d91d5f32fd5f79
@@ -934,13 +1051,19 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
+      Hash: 91a99af725adb3134023fdaf1e0fab9e
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Blinking
+  - hash:
+      serializedVersion: 2
       Hash: 9637dcdf3068a91dfe653e61bb82f13d
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: c25533b38dee622a1ebccf5bcf9bce99
+      Hash: a5f6c0ecccae4519b6139538f610bc31
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: ShieldControls
@@ -1286,6 +1409,24 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 6646c276ae24bb6ea939f2f9fc2359be
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CyberBlinking
+  - hash:
+      serializedVersion: 2
+      Hash: 151d7c4d6362d29cfd896e2ea6c9512a
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CyberAttackHandler
+  - hash:
+      serializedVersion: 2
+      Hash: d019be54c25eb322b33aa20374b3df59
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EnableEducation
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

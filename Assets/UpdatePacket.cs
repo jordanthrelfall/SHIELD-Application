@@ -16,6 +16,8 @@ public class UpdatePacket : MonoBehaviour
     public Slider slider;
     public LightController lights;
     public EnergyFlow energy;
+    public GameObject energyflow;
+    public GameObject lampsObject;
     string mode;
 
     public GameObject night;
@@ -81,10 +83,6 @@ public class UpdatePacket : MonoBehaviour
             mode = "automatic";
         }
         messageHandler.mode = mode;
-
-        string json = JsonUtility.ToJson(messageHandler);
-
-        networking.SendData(json);
     }
 
     public void resetUpdatePacketAndSend()
@@ -104,5 +102,18 @@ public class UpdatePacket : MonoBehaviour
         networking.SendData(json);
 
         messageHandler.reset = "";
+
+        TurnOffSources();
+    }
+
+    public void TurnOffSources()
+    {
+        energyflow.SetActive(false);
+        lampsObject.SetActive(false);
+    }
+    public void TurnOnSources()
+    {
+        energyflow.SetActive(true);
+        lampsObject.SetActive(true);
     }
 }

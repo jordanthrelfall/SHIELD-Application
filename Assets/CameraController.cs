@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
     public GameObject batteryEducation;
     public GameObject inverterEducation;
     public GameObject gridInformation;
+    public GameObject blinkingGridPole;
     public Blinking blinking;
 
 
@@ -82,6 +83,7 @@ public class CameraController : MonoBehaviour
         panelBlinking.SetActive(false);
         batteryBlinking.SetActive(false);
         inverterBlinking.SetActive(false);
+        blinkingGridPole.SetActive(false);
 
         switch (cam)
         {
@@ -107,6 +109,8 @@ public class CameraController : MonoBehaviour
                 break;
             case 4:
                 Grid.SetActive(true);
+                blinkingGridPole.SetActive(true);
+                blinking.StartBlinking();
                 Debug.Log("Grid.");
                 break;
             default:
