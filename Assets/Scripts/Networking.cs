@@ -20,7 +20,6 @@ public class Networking : MonoBehaviour
     public TMP_Text grid_power;
     public TMP_Text grid_voltage;
     public TMP_Text grid_current;
-    public TMP_Text dc_load;
     public TMP_Text ac_load;
 
     UdpClient udpClient;
@@ -45,7 +44,6 @@ public class Networking : MonoBehaviour
         grid_power.text = rasp.grid_power.ToString();
         grid_voltage.text = rasp.grid_voltage.ToString();
         grid_current.text = rasp.grid_current.ToString();
-        dc_load.text = rasp.dc_load.ToString();
         ac_load.text = rasp.ac_load.ToString();
         StartReceiving();
     }
@@ -69,7 +67,6 @@ public class Networking : MonoBehaviour
         grid_power.text = rasp.grid_power.ToString();
         grid_voltage.text = rasp.grid_voltage.ToString();
         grid_current.text = rasp.grid_current.ToString();
-        dc_load.text = rasp.dc_load.ToString();
         ac_load.text = rasp.ac_load.ToString();
     }
 
