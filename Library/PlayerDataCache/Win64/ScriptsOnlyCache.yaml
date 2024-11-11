@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - ConfigControls
     - CyberAttackHandler
     - CyberBlinking
+    - EMSHandler
     - EducationInfo
     - EnableEducation
     - EnergyFlow
@@ -97,20 +98,20 @@ ScriptsOnlyBuild:
     fullTypeName: ConfigControls
     methodName: ShowControls
   - assembly: Assembly-CSharp
-    fullTypeName: ShieldControls
-    methodName: ResetController
-  - assembly: Assembly-CSharp
     fullTypeName: EducationInfo
     methodName: CloseEducation
-  - assembly: Assembly-CSharp
-    fullTypeName: ShieldControls
-    methodName: ResetController
+  - assembly: UnityEngine.CoreModule
+    fullTypeName: UnityEngine.GameObject
+    methodName: SetActive
   - assembly: Assembly-CSharp
     fullTypeName: ShieldControls
     methodName: updateTod
   - assembly: Assembly-CSharp
     fullTypeName: CameraController
     methodName: SetCameraTransform
+  - assembly: Assembly-CSharp
+    fullTypeName: EducationInfo
+    methodName: CloseEducation
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
@@ -186,6 +187,12 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -221,41 +228,43 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4368}
     - Class: 114
-      Script: {instanceID: 4536}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 5120}
+      Script: {instanceID: 4538}
     - Class: 114
-      Script: {instanceID: 5168}
+      Script: {instanceID: 5114}
     - Class: 114
-      Script: {instanceID: 5240}
+      Script: {instanceID: 5124}
     - Class: 114
-      Script: {instanceID: 5344}
+      Script: {instanceID: 5172}
     - Class: 114
-      Script: {instanceID: 5426}
+      Script: {instanceID: 5244}
     - Class: 114
-      Script: {instanceID: 5492}
+      Script: {instanceID: 5348}
     - Class: 114
-      Script: {instanceID: 5528}
+      Script: {instanceID: 5430}
     - Class: 114
-      Script: {instanceID: 5576}
+      Script: {instanceID: 5496}
     - Class: 114
-      Script: {instanceID: 5794}
+      Script: {instanceID: 5532}
     - Class: 114
-      Script: {instanceID: 5918}
+      Script: {instanceID: 5580}
     - Class: 114
-      Script: {instanceID: 5948}
+      Script: {instanceID: 5798}
     - Class: 114
-      Script: {instanceID: 6034}
+      Script: {instanceID: 5922}
     - Class: 114
-      Script: {instanceID: 6268}
+      Script: {instanceID: 5952}
     - Class: 114
-      Script: {instanceID: 6812}
+      Script: {instanceID: 6038}
     - Class: 114
-      Script: {instanceID: 126538}
+      Script: {instanceID: 6272}
     - Class: 114
-      Script: {instanceID: 187616}
+      Script: {instanceID: 6816}
     - Class: 114
-      Script: {instanceID: 374858}
+      Script: {instanceID: 7892}
+    - Class: 114
+      Script: {instanceID: 7902}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -547,7 +556,7 @@ ScriptsOnlyBuild:
     className: Benchmark04
   - hash:
       serializedVersion: 2
-      Hash: 94e21923f6167448d4992138234bd514
+      Hash: 9049d1d06dcfc9aadb27044f8b19db95
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Networking
@@ -781,6 +790,12 @@ ScriptsOnlyBuild:
     className: BlinkingGrid
   - hash:
       serializedVersion: 2
+      Hash: d019be54c25eb322b33aa20374b3df59
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EnableEducation
+  - hash:
+      serializedVersion: 2
       Hash: e7e95903ca66d58e1a7cbd71f824e16d
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -905,6 +920,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
     className: ShaderPropAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: 6646c276ae24bb6ea939f2f9fc2359be
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CyberBlinking
   - hash:
       serializedVersion: 2
       Hash: 10c17b309bdca62b4d7fbaf113ed4ca0
@@ -1369,10 +1390,22 @@ ScriptsOnlyBuild:
     className: ControlsWheel
   - hash:
       serializedVersion: 2
+      Hash: bd031447895b70e82089d7af566d5108
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: EMSHandler
+  - hash:
+      serializedVersion: 2
       Hash: ff76cf6cf52b4db7b95af6ffadca9288
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
     className: SignalEmitter
+  - hash:
+      serializedVersion: 2
+      Hash: 6dd1a8142c4ed8b4a32dbaa5cd201686
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: CyberAttackHandler
   - hash:
       serializedVersion: 2
       Hash: 02a47340661d2ea7c6d30e292cfef403
@@ -1409,24 +1442,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 6646c276ae24bb6ea939f2f9fc2359be
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CyberBlinking
-  - hash:
-      serializedVersion: 2
-      Hash: 151d7c4d6362d29cfd896e2ea6c9512a
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: CyberAttackHandler
-  - hash:
-      serializedVersion: 2
-      Hash: d019be54c25eb322b33aa20374b3df59
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: EnableEducation
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

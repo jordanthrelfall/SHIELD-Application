@@ -13,7 +13,14 @@ public class CyberAttackHandler : MonoBehaviour
     public Networking networking;
     public bool active = false;
     public GameObject education;
+    public AudioSource audio;
 
+    private int count;
+
+    void Start()
+    {
+        count = 1000;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +33,19 @@ public class CyberAttackHandler : MonoBehaviour
             pressconfig.SetActive(false);
             ems.SetActive(false);
             active = true;
+
+            if (count == 60)
+            {
+                reset.cyberUpdatePacketAndSend();
+                count = 0;
+            }
+
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
+
+            count++;   
         }
         else
         {
@@ -37,8 +57,9 @@ public class CyberAttackHandler : MonoBehaviour
                 cyberlights.SetActive(false);
                 ems.SetActive(true);
                 active = false;
+                audio.Stop();
             }      
-        }
+        }      
     }
 
     public void ResumeConfig()

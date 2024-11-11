@@ -24,8 +24,9 @@ public class RaspPiData
     public string ac_load;
     public string cyberattack;
 
-    public string SolarRelay;
-    public string BatteryToInvRelay;
-    public string ToggleRelay;
-    public string DCLoadRelay;
+    public string solar_relay_state;
+    public string battery_to_inv_relay_state;
+    public string grid_relay_state;
+    public string dc_load_relay_state;
+    public string inverter_to_ac_load_relay_state;
 }

@@ -106,6 +106,27 @@ public class UpdatePacket : MonoBehaviour
         TurnOffSources();
     }
 
+    public void cyberUpdatePacketAndSend()
+    {
+        messageHandler.timeOfDay = "";
+
+        messageHandler.powerSource = "";
+
+        messageHandler.load = "";
+
+        messageHandler.mode = "";
+
+        messageHandler.reset = "hello";
+
+        string json = JsonUtility.ToJson(messageHandler);
+
+        networking.SendData(json);
+
+        messageHandler.reset = "";
+
+        TurnOffSources();
+    }
+
     public void TurnOffSources()
     {
         energyflow.SetActive(false);

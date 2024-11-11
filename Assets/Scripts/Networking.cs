@@ -94,21 +94,26 @@ public class Networking : MonoBehaviour
                 Debug.Log("Parsed Data: " + receivedData.dc_load.ToString()); // Debug output to check if parsing worked
 
                 // Update UI on the main thread
-                rasp.solar = receivedData.solar;
-                rasp.solar_voltage = receivedData.solar_voltage;
-                rasp.solar_current = receivedData.solar_current;
-                rasp.inverter_power = receivedData.inverter_power;
-                rasp.inverter_voltage = receivedData.inverter_voltage;
-                rasp.inverter_current = receivedData.inverter_current;
-                rasp.battery = receivedData.battery;
-                rasp.battery_voltage = receivedData.battery_voltage;
-                rasp.battery_current = receivedData.battery_current;
-                rasp.grid_power = receivedData.grid_power;
-                rasp.grid_voltage = receivedData.grid_voltage;
-                rasp.grid_current = receivedData.grid_current;
-                rasp.dc_load = receivedData.dc_load;
-                rasp.ac_load = receivedData.ac_load;
+                rasp.solar = Convert.ToDouble(receivedData.solar).ToString("N" + 2);
+                rasp.solar_voltage = Convert.ToDouble(receivedData.solar_voltage).ToString("N" + 2);
+                rasp.solar_current = Convert.ToDouble(receivedData.solar_current).ToString("N" + 2);
+                rasp.inverter_power = Convert.ToDouble(receivedData.inverter_power).ToString("N" + 2);
+                rasp.inverter_voltage = Convert.ToDouble(receivedData.inverter_voltage).ToString("N" + 2);
+                rasp.inverter_current = Convert.ToDouble(receivedData.inverter_current).ToString("N" + 2);
+                rasp.battery = Convert.ToDouble(receivedData.battery).ToString("N" + 2);
+                rasp.battery_voltage = Convert.ToDouble(receivedData.battery_voltage).ToString("N" + 2);
+                rasp.battery_current = Convert.ToDouble(receivedData.battery_current).ToString("N" + 2);
+                rasp.grid_power = Convert.ToDouble(receivedData.grid_power).ToString("N" + 2);
+                rasp.grid_voltage = Convert.ToDouble(receivedData.grid_voltage).ToString("N" + 2);
+                rasp.grid_current = Convert.ToDouble(receivedData.grid_current).ToString("N" + 2);
+                rasp.dc_load = Convert.ToDouble(receivedData.dc_load).ToString("N" + 2);
+                rasp.ac_load = Convert.ToDouble(receivedData.ac_load).ToString("N" + 2);
                 rasp.cyberattack = receivedData.cyberattack;
+                rasp.solar_relay_state = receivedData.solar_relay_state;
+                rasp.battery_to_inv_relay_state = receivedData.battery_to_inv_relay_state;
+                rasp.grid_relay_state = receivedData.grid_relay_state;
+                rasp.dc_load_relay_state = receivedData.dc_load_relay_state;
+                rasp.inverter_to_ac_load_relay_state = receivedData.inverter_to_ac_load_relay_state;
 
                 // Assign the received data to the rasp variable
                 //rasp = receivedData;
