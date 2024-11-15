@@ -19,7 +19,7 @@ public class EnergyFlow : MonoBehaviour
         switch (message.powerSource)
         {
             case "PV / Battery":
-                pvToBattery.SetActive(true);
+                pvToBattery.SetActive(false);
                 batteryToInverter.SetActive(false);
                 gridToHouse.SetActive(false);
                 break;
@@ -54,12 +54,16 @@ public class EnergyFlow : MonoBehaviour
                 batteryToInverter.SetActive(false);
                 break;
             default:
+                gridToHouse.SetActive(false);
+                pvToBattery.SetActive(false);
+                batteryToInverter.SetActive(false);
                 break;
         }
         
         if (message.load == "DC")
         {
             lamp_inverter.SetActive(false);
+            lamp_grid.SetActive(false);
             batteryToDC.SetActive(true);
         }
         else if (message.load == "AC")
