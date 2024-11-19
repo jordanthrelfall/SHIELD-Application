@@ -21,6 +21,8 @@ public class Networking : MonoBehaviour
     public TMP_Text grid_voltage;
     public TMP_Text grid_current;
     public TMP_Text ac_load;
+    public TMP_Text inverter_power_factor;
+    public TMP_Text grid_power_factor;
 
     UdpClient udpClient;
     private Thread receiveThread;
@@ -45,6 +47,8 @@ public class Networking : MonoBehaviour
         grid_voltage.text = rasp.grid_voltage.ToString();
         grid_current.text = rasp.grid_current.ToString();
         ac_load.text = rasp.ac_load.ToString();
+        inverter_power_factor.text = rasp.inverter_power_factor.ToString();
+        grid_power_factor.text = rasp.grid_power_factor.ToString();
         StartReceiving();
     }
 
@@ -68,6 +72,8 @@ public class Networking : MonoBehaviour
         grid_voltage.text = rasp.grid_voltage.ToString();
         grid_current.text = rasp.grid_current.ToString();
         ac_load.text = rasp.ac_load.ToString();
+        inverter_power_factor.text = rasp.inverter_power_factor.ToString();
+        grid_power_factor.text = rasp.grid_power_factor.ToString();
     }
 
     private void StartReceiving()
@@ -108,6 +114,8 @@ public class Networking : MonoBehaviour
                 rasp.grid_current = Convert.ToDouble(receivedData.grid_current).ToString("N" + 2);
                 rasp.dc_load = Convert.ToDouble(receivedData.dc_load).ToString("N" + 2);
                 rasp.ac_load = Convert.ToDouble(receivedData.ac_load).ToString("N" + 2);
+                rasp.inverter_power_factor = Convert.ToDouble(receivedData.inverter_power_factor).ToString("N" + 2);
+                rasp.grid_power_factor = Convert.ToDouble(receivedData.grid_power_factor).ToString("N" + 2);
                 rasp.cyberattack = receivedData.cyberattack;
                 rasp.solar_relay_state = receivedData.solar_relay_state;
                 rasp.battery_to_inv_relay_state = receivedData.battery_to_inv_relay_state;

@@ -7,6 +7,7 @@ public class EMSHandler : MonoBehaviour
 {
     public Networking networking;
     public EnergyFlow energyFlow;
+    public LightController lights;
     public Slider slider;
     private int update = 0;
 
@@ -38,30 +39,41 @@ public class EMSHandler : MonoBehaviour
             if (networking.rasp.battery_to_inv_relay_state == "ON")
             {
                 energyFlow.batteryToInverter.SetActive(true);
+                lights.ac_batterylight.SetActive(true);
+                energyFlow.lamp_inverter.SetActive(true);
+                energyFlow.lamp_grid.SetActive(false);
+                lights.ac_gridlight.SetActive(false);
             }
             else
             {
                 energyFlow.batteryToInverter.SetActive(false);
+                lights.ac_batterylight.SetActive(false);
             }
 
             if (networking.rasp.grid_relay_state == "ON")
             {
                 energyFlow.gridToHouse.SetActive(true);
                 energyFlow.lamp_grid.SetActive(true);
+                lights.ac_gridlight.SetActive(true);
+                energyFlow.lamp_inverter.SetActive(false);
+                lights.ac_batterylight.SetActive(false);
             }
             else
             {
-                energyFlow.gridToHouse.SetActive(false);
-                energyFlow.lamp_inverter.SetActive(true);
+                energyFlow.gridToHouse.SetActive(false); 
+                energyFlow.lamp_grid.SetActive(false);
+                lights.ac_gridlight.SetActive(false);
             }
 
             if (networking.rasp.dc_load_relay_state == "ON")
             {
                 energyFlow.batteryToDC.SetActive(true);
+                lights.dc_light.SetActive(true);
             }
             else
             {
                 energyFlow.batteryToDC.SetActive(false);
+                lights.dc_light.SetActive(false);
             }
 
             if (networking.rasp.inverter_to_ac_load_relay_state == "ON")

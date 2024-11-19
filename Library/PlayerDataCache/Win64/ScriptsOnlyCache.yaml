@@ -31,6 +31,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -103,6 +104,9 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.CoreModule
     fullTypeName: UnityEngine.GameObject
     methodName: SetActive
+  - assembly: Assembly-CSharp
+    fullTypeName: ShieldControls
+    methodName: ResetController
   - assembly: Assembly-CSharp
     fullTypeName: ShieldControls
     methodName: updateTod
@@ -215,6 +219,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3288}
     - Class: 114
       Script: {instanceID: 3330}
+    - Class: 114
+      Script: {instanceID: 3716}
     - Class: 114
       Script: {instanceID: 3748}
     - Class: 114
@@ -556,7 +562,7 @@ ScriptsOnlyBuild:
     className: Benchmark04
   - hash:
       serializedVersion: 2
-      Hash: 9049d1d06dcfc9aadb27044f8b19db95
+      Hash: c345c5634dafff5b0964efb2b86f9421
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Networking
@@ -1390,7 +1396,7 @@ ScriptsOnlyBuild:
     className: ControlsWheel
   - hash:
       serializedVersion: 2
-      Hash: bd031447895b70e82089d7af566d5108
+      Hash: 8dbd530fc1eb0f6c447d725c577eedc7
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: EMSHandler

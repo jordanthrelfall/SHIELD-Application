@@ -22,6 +22,8 @@ public class RaspPiData
     public string grid_current;
     public string dc_load;
     public string ac_load;
+    public string inverter_power_factor;
+    public string grid_power_factor;
     public string cyberattack;
 
     public string solar_relay_state;
