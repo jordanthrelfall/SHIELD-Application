@@ -99,6 +99,9 @@ ScriptsOnlyBuild:
     fullTypeName: ConfigControls
     methodName: ShowControls
   - assembly: Assembly-CSharp
+    fullTypeName: ShieldControls
+    methodName: ResetController
+  - assembly: Assembly-CSharp
     fullTypeName: EducationInfo
     methodName: CloseEducation
   - assembly: UnityEngine.CoreModule
